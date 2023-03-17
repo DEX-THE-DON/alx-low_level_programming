@@ -3,17 +3,20 @@
 #include <time.h>
 
 /**
- * main - Display characters
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	char i;
+	char low;
 
-	for (i = 'a'; i <= 'z'; i++)
-		putchar(i);
+	for (low = 'a'; low <= 'z'; low++)
+		putchar(low);
+	for (low = 'A'; low <= 'Z'; low++)
+		putchar(low);
 	putchar('\n');
+
 	return (0);
 }
