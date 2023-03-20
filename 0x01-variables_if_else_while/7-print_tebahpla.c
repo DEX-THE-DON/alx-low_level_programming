@@ -13,6 +13,5 @@ char dex;
 for (dex = 'z' ; dex >= 'a' ; dex--)
 putchar(dex);
 putchar('\n');
-
 return (0);
 }
