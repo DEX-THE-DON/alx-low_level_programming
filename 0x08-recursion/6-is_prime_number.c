@@ -1,55 +1,37 @@
 #include "main.h"
-
-
-#include <stdio.h>
-
-int _strlen_recursion(char *s);
-int helper_palindrome(char *s, int len);
+int is_divisible(int num, int div);
 
 /**
- *_strlen_recursion - A function to obtain the length of the string s
- * @s: A string to calculate length
- * Return: the length of string s
+ * is_prime_number - Afunction that checks if a number is prime.
+ * @n: an input integer
+ * Return: 1 if n is prime or  0 in otherwise
  */
-int _strlen_recursion(char *s)
+int is_prime_number(int n)
 {
-	if (!*s)
-	{
+	int div = 2;
+
+	if (n <= 1)
 		return (0);
-	}
-	return (_strlen_recursion(s + 1) + 1);
+
+	if (n <= 3)
+		return (1);
+
+	return (is_divisible(n, div));
 }
 
 /**
- * is_palindrome - A function that checks if s is a palindrome string
- * @s: An inpuit string
- * Return: 1 if is string is a palindrome or 0 in otherwise
+ * is_divisible - check if num is divisible
+ * @num: the number to be checked
+ * @div: the result of division
+ * Return: 1 if num is divisible or 0 if numis not divisible
  */
-int is_palindrome(char *s)
+int is_divisible(int num, int div)
 {
-	int len;
-
-	len = _strlen_recursion(s);
-	if (len <= 1)
-		return (1);
-	return (helper_palindrome(s, len));
-}
-
-/**
- * helper_palindrome - A function with a revesed string
- * @s: An input string
- * @len: the length of the string s
- * Return: A reverse string
- */
-int helper_palindrome(char *s, int len)
-{
-	if (len <= 1)
-		return (1);
-	else if (*s == *(s + len - 1))
-	{
-		return (helper_palindrome(s + 1, len - 2));
-	}
-	else
+	if (num % div == 0)
 		return (0);
 
+	if (div == num / 2)
+		return (1);
+
+	return (is_divisible(num, div + 1));
 }
