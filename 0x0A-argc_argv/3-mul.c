@@ -10,30 +10,27 @@
  * Return: Zero upon program success
  */
 
-
-int main( int argc, char *argv[] )
+/**
+ * main - A program that multiplies two numbers
+ * @argc: The arguments' counter
+ * @argv: The arguments' values
+ * Return: Always 0 (Success)
+ */
+int main(int argc, char **argv)
 {
-	long result = 1;
+	int num1, num2, result;
 
-	for ( int i = 1; i < argc; i++ )
+	if (argc != 3)
 	{
-	long num;
-	char *p;
-	errno = 0;
-	num = strtol( argv[i], &p, 10 );
-	if ( p == argv[i] )
+		printf("Error\n");
+		return (1);
+	}
+	else
 	{
-		fprintf( stderr, "Conversion of argv[%d] failed!\n", i );
-	exit( EXIT_FAILURE );
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[2]);
+		result = num1 * num2;
+		printf("%d\n", result);
+		return (0);
 	}
-	if ( errno == ERANGE )
-	{
-		fprintf( stderr, "Argument of argv[%d] out of range!\n", i );
-		exit( EXIT_FAILURE );
-	}
-	result = result * num;
-	}
-	printf( "%ld\n", result );
-
-	return EXIT_SUCCESS;
 }

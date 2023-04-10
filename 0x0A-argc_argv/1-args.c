@@ -8,14 +8,9 @@
  * Return: Always 0 (Success)
  */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int i;
-
-	printf("%d\n", argc);
-	for (i = 0; i < argc; i++)
-	{
-		printf("%s\n", argv[i]);
-	}
+	if (argv[0])
+		printf("%d\n", argc - 1);
 	return (0);
 }
