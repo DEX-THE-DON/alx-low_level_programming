@@ -5,6 +5,7 @@
  * @head: pointer to head element of list
  * Return: Nothing
  */
+
 void free_list(list_t *head)
 {
 
